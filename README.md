@@ -1,41 +1,45 @@
-# Job Portal
+# Job Portal Frontend
 
-## Spring Boot Based Online Job Recruitment Management System
+## React Based Job Recruitment Management System
 
-![Java](https://img.shields.io/badge/Java-17-blue)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-brightgreen)
-![Spring Security](https://img.shields.io/badge/Spring_Security-Security-green)
-![JWT](https://img.shields.io/badge/JWT-Authentication-purple)
-![Maven](https://img.shields.io/badge/Maven-Build-red)
+![React](https://img.shields.io/badge/React-18%2B-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow)
+![Vite](https://img.shields.io/badge/Vite-Build-purple)
+![CSS](https://img.shields.io/badge/CSS-Styling-blue)
 ![REST API](https://img.shields.io/badge/REST-API-orange)
-![Oracle SQL](https://img.shields.io/badge/Oracle-SQL-red)
+![Node.js](https://img.shields.io/badge/Node.js-Runtime-green)
+![npm](https://img.shields.io/badge/npm-Package-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-Job Portal is a Spring Boot based backend application developed to manage the core functionalities of an online recruitment platform. The project follows a layered architecture and demonstrates REST API development using Spring Boot while applying secure authentication and role-based authorization for Candidate, Recruiter, and Admin management.
+Job Portal Frontend is a modern web interface for an online recruitment management system. It provides a user-friendly interface for Candidates, Recruiters, and Admins to interact with the Job Portal backend through REST APIs.
+
+The frontend communicates with the Spring Boot backend for authentication, job management, candidate management, recruiter management, and application-related operations.
 
 ---
 
 # Features
 
-- Candidate Management
-- Recruiter Management
-- Admin Management
-- User Registration and Login
-- JWT Authentication
-- Role-Based Authorization
-- Candidate Profile Management
+- User Registration
+- User Login
+- Role-Based User Interface
+- Candidate Interface
+- Recruiter Interface
+- Admin Interface
+- Job Listing
 - Job Search
-- Job Creation
+- Job Details
 - Job Management
 - Job Application
 - Application Management
-- Application Status Management
-- Resume Management
-- REST API Development
-- Password Encryption
-- Exception Handling
-- Swagger / OpenAPI Documentation
-- Postman API Testing
+- Candidate Profile
+- Recruiter Management
+- Admin Management
+- JWT Authentication
+- Protected Routes
+- REST API Integration
+- Responsive User Interface
+- API Error Handling
+- Loading State Handling
 
 ---
 
@@ -43,52 +47,87 @@ Job Portal is a Spring Boot based backend application developed to manage the co
 
 | Technology | Purpose |
 |------------|---------|
-| Java | Programming Language |
-| Spring Boot | Backend Framework |
-| Spring MVC | REST API Development |
-| Spring Security | Authentication & Authorization |
-| JWT | Authentication |
-| Spring Data JPA | Data Access |
-| Hibernate | ORM |
+| React | Frontend Library |
+| JavaScript | Programming Language |
+| Vite | Development & Build Tool |
+| HTML5 | Page Structure |
+| CSS3 | Styling |
 | REST API | Backend Communication |
-| JDBC | Database Connectivity |
-| Oracle Database 21c XE | Database |
-| Oracle SQL | Database Management |
-| Maven | Build Automation |
-| Postman | API Testing |
-| Swagger / OpenAPI | API Documentation |
-| IntelliJ IDEA | Development Environment |
+| JWT | Authentication |
+| Node.js | JavaScript Runtime |
+| npm | Package Management |
 | Git | Version Control |
 | GitHub | Repository Hosting |
-| Oracle SQL Developer | Database Management |
+| IntelliJ IDEA / VS Code | Development Environment |
+
+---
+
+# Application Architecture
+
+```text
+User
+ │
+ ▼
+React Frontend
+ │
+ ├── Authentication
+ ├── Job Management
+ ├── Candidate Management
+ ├── Recruiter Management
+ └── Admin Management
+ │
+ ▼
+REST API
+ │
+ ▼
+Spring Boot Backend
+ │
+ ▼
+Spring Security + JWT
+ │
+ ▼
+Service Layer
+ │
+ ▼
+Repository Layer
+ │
+ ▼
+Oracle Database
+```
 
 ---
 
 # Application Workflow
 
 ```text
-Client Request
-      │
-      ▼
+User Opens Application
+        │
+        ▼
+      Login
+        │
+        ▼
 JWT Authentication
-      │
-      ▼
-REST Controller
-      │
-      ▼
-Service Layer
-      │
-      ▼
-Repository Layer
-      │
-      ▼
-Spring Data JPA / Hibernate
-      │
-      ▼
-Oracle Database
-      │
-      ▼
-JSON Response
+        │
+        ▼
+Role Identification
+        │
+ ┌──────┼────────┐
+ ▼      ▼        ▼
+Candidate Recruiter Admin
+ │        │        │
+ ▼        ▼        ▼
+Jobs    Manage   Manage
+Apply   Jobs     Users
+ │        │        │
+ └────────┼────────┘
+          ▼
+      REST APIs
+          │
+          ▼
+   Spring Boot Backend
+          │
+          ▼
+      Oracle Database
 ```
 
 ---
@@ -96,33 +135,52 @@ JSON Response
 # Project Structure
 
 ```text
-Job-Portal
+job-portal-frontend
+│
+├── public
 │
 ├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com
-│   │   │       └── jobportal
-│   │   │           └── jobportal
-│   │   │               ├── controller
-│   │   │               ├── dto
-│   │   │               ├── entity
-│   │   │               ├── repository
-│   │   │               ├── security
-│   │   │               ├── service
-│   │   │               └── JobPortalApplication.java
-│   │   │
-│   │   └── resources
-│   │       └── application.properties
+│   ├── assets
 │   │
-│   └── test
+│   ├── components
+│   │
+│   ├── pages
+│   │
+│   ├── services
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── .mvn
-├── pom.xml
-├── mvnw
-├── mvnw.cmd
-├── README.md
-└── LICENSE
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+# Prerequisites
+
+Before running the project, make sure the following are installed:
+
+- Node.js
+- npm
+- Git
+- Job Portal Spring Boot Backend
+
+Check Node.js version:
+
+```bash
+node -v
+```
+
+Check npm version:
+
+```bash
+npm -v
 ```
 
 ---
@@ -132,94 +190,153 @@ Job-Portal
 ## Clone Repository
 
 ```bash
-git clone https://github.com/rarunkumar2307/Job-Portal.git
+git clone https://github.com/rarunkumar2307/Job-Portal-Frontend.git
 ```
 
 ## Navigate to Project
 
 ```bash
-cd Job-Portal
+cd Job-Portal-Frontend
 ```
 
-## Build Project
+## Install Dependencies
 
 ```bash
-mvn clean install
+npm install
 ```
 
-## Run Application
+## Start Development Server
 
 ```bash
-mvn spring-boot:run
+npm run dev
 ```
 
----
-
-# API Documentation
-
-Swagger / OpenAPI documentation is available after starting the application.
+The frontend will normally be available at:
 
 ```text
-http://localhost:8080/swagger-ui.html
+http://localhost:5173
 ```
 
-or
+---
+
+# Backend Integration
+
+This frontend is designed to communicate with the Job Portal Spring Boot backend through REST APIs.
+
+The backend should be running before using features that require server-side data.
+
+Default backend URL:
 
 ```text
-http://localhost:8080/swagger-ui/index.html
+http://localhost:8080
 ```
 
----
+Frontend requests are sent to the backend REST API for operations such as:
 
-# Database Configuration
-
-The application uses Oracle Database for persistent data storage.
-
-Example configuration:
-
-```properties
-spring.datasource.url=jdbc:oracle:thin:@localhost:1521/XEPDB1
-spring.datasource.username=JOB
-spring.datasource.password=JOB
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
-```
-
-Make sure Oracle Database is running and the required database user has been configured before starting the application.
-
----
-
-# Testing
-
-The REST APIs can be tested using Postman.
-
-Main testing areas include:
-
-- User Registration
-- User Login
-- JWT Authentication
+- Authentication
+- User Management
 - Job Management
 - Candidate Management
 - Recruiter Management
-- Job Applications
-- Application Status
+- Application Management
 - Admin Operations
+
+---
+
+# Authentication
+
+The application uses JWT-based authentication provided by the Spring Boot backend.
+
+```text
+Login
+  │
+  ▼
+Spring Boot Authentication API
+  │
+  ▼
+JWT Token
+  │
+  ▼
+Frontend
+  │
+  ▼
+Authenticated API Requests
+```
+
+Protected functionality requires a valid authentication token.
+
+---
+
+# Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+---
+
+# Production Build
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+The production files will be generated in:
+
+```text
+dist/
+```
+
+---
+
+# Backend Requirement
+
+The frontend requires the Job Portal Spring Boot backend for API-based functionality.
+
+Backend technologies include:
+
+- Java
+- Spring Boot
+- Spring MVC
+- Spring Security
+- JWT
+- Spring Data JPA
+- Hibernate
+- Oracle SQL
+- REST APIs
 
 ---
 
 # Future Enhancements
 
 - Advanced Job Search
-- Job Recommendation System
-- Resume File Upload
-- Email Notifications
-- Candidate Dashboard
-- Recruiter Dashboard
-- Admin Dashboard
+- Resume Upload Interface
+- Email Notification Interface
+- Candidate Dashboard Enhancements
+- Recruiter Dashboard Enhancements
+- Admin Dashboard Enhancements
+- Application Tracking
+- Job Recommendation Interface
 - Pagination and Sorting
 - Online Interview Management
 - Docker Deployment
 - Cloud Deployment
-- Frontend Integration
 
 ---
 
@@ -229,11 +346,15 @@ Main testing areas include:
 
 Bachelor of Technology (Information Technology)
 
-Backend Java Developer
+Java Backend Developer
 
 ### GitHub
 
 https://github.com/rarunkumar2307
+
+### LinkedIn
+
+https://www.linkedin.com/in/arunkumar2307/
 
 ---
 
